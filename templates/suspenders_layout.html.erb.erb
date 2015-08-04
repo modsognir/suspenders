@@ -9,11 +9,11 @@
     config/locales/en.yml. For more see:
     https://github.com/calebthompson/title#usage
   %>
-  <title><%%= title %></title>
+  <title><%%= Rails.application.engine_name.titleize %></title>
   <%%= stylesheet_link_tag :application, media: "all" %>
   <%%= csrf_meta_tags %>
 </head>
-<body class="<%%= body_class %>">
+<body class="<%%= "#{controller.controller_name} #{controller.action_name}" %>">
   <%%= render "flashes" -%>
   <%%= yield %>
   <%%= render "javascript" %>
